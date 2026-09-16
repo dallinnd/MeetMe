@@ -149,7 +149,7 @@ iframe {
     background-color: #000;
 }
 */
-/* Container remains mostly the same */
+/* Container */
 .video-gallery {
     display: flex;
     gap: 20px;
@@ -161,20 +161,23 @@ iframe {
 
 /* Base styles for the iframe */
 .video-gallery iframe {
+    width: auto; /* Protects against global width:100% rules */
     aspect-ratio: 9 / 16;
     border: none;
     border-radius: 12px;
     scroll-snap-align: start;
     
+    /* Added your nice shadow and background */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    background-color: #000;
+    
     /* DEFAULT (Mobile): Show 2 videos at a time */
-    /* 100% width minus 1 gap (20px), divided by 2 videos */
     flex: 0 0 calc((100% - 20px) / 2); 
 }
 
 /* TABLET: Show 3 videos at a time */
 @media (min-width: 600px) {
     .video-gallery iframe {
-        /* 100% width minus 2 gaps (40px), divided by 3 videos */
         flex: 0 0 calc((100% - 40px) / 3); 
     }
 }
@@ -182,7 +185,6 @@ iframe {
 /* DESKTOP: Show exactly 4 videos at a time */
 @media (min-width: 992px) {
     .video-gallery iframe {
-        /* 100% width minus 3 gaps (60px), divided by 4 videos */
         flex: 0 0 calc((100% - 60px) / 4); 
     }
 }
