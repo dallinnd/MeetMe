@@ -139,6 +139,15 @@ h1 {
     grid-template-rows: repeat(2, 1fr);
     gap: 20px;
 }
+
+iframe {
+    width: 100%;
+    aspect-ratio: 9/16; 
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    background-color: #000;
+}
 */
 /* Container remains mostly the same */
 .video-gallery {
@@ -185,15 +194,6 @@ h1 {
 .video-gallery::-webkit-scrollbar-thumb {
     background-color: #ccc;
     border-radius: 10px;
-}
-
-iframe {
-    width: 100%;
-    aspect-ratio: 9/16; 
-    border: none;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    background-color: #000;
 }
 
 /* Contact Section (Collaboration Page) */
