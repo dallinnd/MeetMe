@@ -140,31 +140,45 @@ h1 {
     gap: 20px;
 }
 */
-/* Video Gallery: Swipeable Carousel */
+/* Container remains mostly the same */
 .video-gallery {
     display: flex;
     gap: 20px;
-    overflow-x: auto; /* Enables horizontal scrolling */
-    padding-bottom: 20px; /* Space for scrollbar */
-    
-    /* Enables snappy scrolling on mobile */
+    overflow-x: auto;
+    padding-bottom: 20px; 
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    
-    /* Center the gallery if there's extra space */
-    justify-content: flex-start;
 }
 
+/* Base styles for the iframe */
 .video-gallery iframe {
-    /* Set a fixed reasonable width, height will auto-calculate */
-    flex: 0 0 260px; 
     aspect-ratio: 9 / 16;
     border: none;
-    border-radius: 12px; /* Optional: rounds the video corners */
-    scroll-snap-align: start; /* Snaps each video into place */
+    border-radius: 12px;
+    scroll-snap-align: start;
+    
+    /* DEFAULT (Mobile): Show 2 videos at a time */
+    /* 100% width minus 1 gap (20px), divided by 2 videos */
+    flex: 0 0 calc((100% - 20px) / 2); 
 }
 
-/* Optional: Make the scrollbar look nice on Desktop */
+/* TABLET: Show 3 videos at a time */
+@media (min-width: 600px) {
+    .video-gallery iframe {
+        /* 100% width minus 2 gaps (40px), divided by 3 videos */
+        flex: 0 0 calc((100% - 40px) / 3); 
+    }
+}
+
+/* DESKTOP: Show exactly 4 videos at a time */
+@media (min-width: 992px) {
+    .video-gallery iframe {
+        /* 100% width minus 3 gaps (60px), divided by 4 videos */
+        flex: 0 0 calc((100% - 60px) / 4); 
+    }
+}
+
+/* Desktop Scrollbar Styling */
 .video-gallery::-webkit-scrollbar {
     height: 8px;
 }
