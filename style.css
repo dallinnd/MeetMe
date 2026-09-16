@@ -132,11 +132,45 @@ h1 {
 }
 
 /* Video Gallery: Desktop Grid */
+/*
 .video-gallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 20px;
+}
+*/
+/* Video Gallery: Swipeable Carousel */
+.video-gallery {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    padding-bottom: 20px; /* Space for scrollbar */
+    
+    /* Enables snappy scrolling on mobile */
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    
+    /* Center the gallery if there's extra space */
+    justify-content: flex-start;
+}
+
+.video-gallery iframe {
+    /* Set a fixed reasonable width, height will auto-calculate */
+    flex: 0 0 260px; 
+    aspect-ratio: 9 / 16;
+    border: none;
+    border-radius: 12px; /* Optional: rounds the video corners */
+    scroll-snap-align: start; /* Snaps each video into place */
+}
+
+/* Optional: Make the scrollbar look nice on Desktop */
+.video-gallery::-webkit-scrollbar {
+    height: 8px;
+}
+.video-gallery::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
 }
 
 iframe {
